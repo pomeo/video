@@ -1,0 +1,92 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "xo && make test-once",
+    "start": "node-dev app.js",
+    "job": "node-dev jobs.js",
+    "build": "/bin/rm -rf public/js/* && NODE_ENV=production webpack -p --colors"
+  },
+  "xo": {
+    "extends": "airbnb",
+    "esnext": true,
+    "space": true,
+    "plugins": [
+      "react"
+    ],
+    "rules": {
+      "strict": 0,
+      "curly": 0,
+      "prefer-template": 2,
+      "consistent-return": [
+        0
+      ],
+      "key-spacing": [
+        0
+      ],
+      "quotes": [
+        0
+      ],
+      "new-cap": [
+        0
+      ],
+      "no-multi-spaces": [
+        0
+      ],
+      "no-shadow": [
+        0
+      ],
+      "no-unused-vars": [
+        1
+      ],
+      "no-use-before-define": [
+        2,
+        "nofunc"
+      ],
+      "react/jsx-no-undef": 1,
+      "react/jsx-uses-react": 1,
+      "react/jsx-uses-vars": 1
+    },
+    "envs": [
+      "node",
+      "mocha",
+      "es6"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "connect-redis": "^3.0.2",
+    "cookie-parser": "^1.4.1",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "jade": "^1.11.0",
+    "lodash": "^4.2.1",
+    "moment": "^2.11.2",
+    "morgan": "^1.6.1",
+    "rollbar": "^0.5.12",
+    "serve-favicon": "^2.3.0",
+    "winston-logs": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.3.0",
+    "gulp-uglify": "^1.5.1",
+    "imagemin-pngcrush": "^4.1.0",
+    "mocha": "^2.4.5",
+    "nib": "^1.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
