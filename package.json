@@ -65,6 +65,7 @@
     "express-session": "^1.13.0",
     "fb": "^1.0.2",
     "jade": "^1.11.0",
+    "kerberos": "0.0.18",
     "lodash": "^4.2.1",
     "moment": "^2.11.2",
     "mongoose": "^4.4.2",
