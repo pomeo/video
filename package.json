@@ -55,6 +55,7 @@
     ]
   },
   "dependencies": {
+    "async": "^1.5.2",
     "axios": "^0.9.1",
     "body-parser": "^1.14.2",
     "connect-redis": "^3.0.2",
