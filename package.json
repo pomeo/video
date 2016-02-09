@@ -69,7 +69,8 @@
     "morgan": "^1.6.1",
     "rollbar": "^0.5.12",
     "serve-favicon": "^2.3.0",
-    "winston-logs": "^1.0.0"
+    "winston-logs": "^1.0.0",
+    "youtube-dl": "^1.10.5"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
