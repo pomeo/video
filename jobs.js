@@ -204,7 +204,14 @@ function getHotVideos(job, done) {
       hvsm: '1',
     },
   }).then(response => {
-    as.each(JSON.parse(response.data).videoList, (video, callback) => {
+    let youtube = {};
+    try {
+      youtube = JSON.parse(response.data);
+    } catch (err) {
+      log.error(`${job.data.taskid} error when json parse ${err}`);
+      done(err);
+    }
+    as.each(youtube.videoList, (video, callback) => {
       const task = new Tasks({
         type: 2,
         status: 1,
