@@ -174,7 +174,7 @@ agenda.define('tasks', {
 });
 
 agenda.on('ready', () => {
-  agenda.every('30 seconds', 'tasks');
+  agenda.every('20 seconds', 'tasks');
   agenda.start();
 });
 
