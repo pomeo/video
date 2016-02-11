@@ -74,6 +74,7 @@
     "mongoose": "^4.4.2",
     "morgan": "^1.6.1",
     "restler": "^3.4.0",
+    "restler-promises": "^0.1.0",
     "rollbar": "^0.5.12",
     "serve-favicon": "^2.3.0",
     "winston-logs": "^1.0.0",
