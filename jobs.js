@@ -53,6 +53,7 @@ queue.watchStuckJobs();
 agenda.define('tasks', {
   concurrency: 1,
 }, (job, done) => {
+  log.info('Agenda check tasks');
   Tasks.aggregate([{
     $match: {
       status: {
