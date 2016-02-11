@@ -368,7 +368,8 @@ function downloadVideo(job, done) {
 
   video.on('error', err => {
     log.error(`${job.data.taskid} Error when download video from yotube ${err}`);
-    done(err);
+    createJobCloseTask(job.data.taskid);
+    done();
   });
 
   video.pipe(fs.createWriteStream(path.join(cwd, `${job.data.video}.mp4`)));
