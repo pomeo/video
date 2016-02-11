@@ -1,24 +1,25 @@
 #========================
 #CONFIG
 #========================
-set :application, "expressjs4-template"
+set :application, "video.salesapps.ru"
 #========================
 #CONFIG
 #========================
 require           "capistrano-offroad"
 offroad_modules   "defaults", "supervisord"
-set :repository,  "git@github.com:pomeo/#{application}.git"
+set :repository,  "git@github.com:pomeo/video.git"
 set :supervisord_start_group, "app"
 set :supervisord_stop_group,  "app"
 #========================
 #ROLES
 #========================
-role :app,        "x.x.x.x"
+set  :gateway,    "#{application}" # main server
+role :app,        "10.3.71.1"      # container
 
 namespace :deploy do
   desc "Symlink shared configs and folders on each release."
   task :symlink_shared do
-    run "ln -s #{shared_path}/files #{release_path}/files"
+    run "ln -s #{shared_path}/files #{release_path}/public/files"
   end
 end
 
