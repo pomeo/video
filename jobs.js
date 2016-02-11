@@ -333,7 +333,7 @@ function getVideoInfo(job, done) {
 }
 
 function downloadVideo(job, done) {
-  log.info(`${job.data.taskid} download video from youtube`);
+  log.info(`${job.data.taskid} download video from youtube ${job.data.video}`);
   const cwd = `${__dirname}/public/files/${job.data.date}`;
   fs.exists(cwd, exists => {
     if (!exists) {
@@ -356,6 +356,11 @@ function downloadVideo(job, done) {
     log.info('Download started');
     log.info(`Filename: ${info._filename}`);
     log.info(`Size: ${info.size}`);
+  });
+
+  video.on('error', err => {
+    log.error(`${job.data.taskid} Error when download video from yotube ${err}`);
+    done(err);
   });
 
   video.pipe(fs.createWriteStream(path.join(cwd, `${job.data.video}.mp4`)));
