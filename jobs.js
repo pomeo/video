@@ -394,6 +394,7 @@ function downloadVideo(job, done) {
 }
 
 function uploadVideo(job, done) {
+  log.info(`${job.data.taskid} upload video to fb`);
   Videos.findOne({
     videoid: job.data.video,
   }, (err, video) => {
