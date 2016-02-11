@@ -66,6 +66,7 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "fb": "^1.0.2",
+    "filesize": "^3.2.1",
     "jade": "^1.11.0",
     "kerberos": "0.0.18",
     "kue": "^0.10.5",
