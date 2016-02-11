@@ -301,8 +301,32 @@ function getVideoInfo(job, done) {
           done(err);
         });
       } else {
-        createJobCloseTask(job.data.taskid);
-        done();
+        if (video.downloaded === false) {
+          queue.create('Jobs', {
+            taskid: job.data.taskid,
+            type: 3,
+            video: job.data.video,
+            date: job.data.date,
+          }).attempts(3)
+            .priority('normal')
+            .removeOnComplete(true)
+            .save();
+          done();
+        } else if (video.uploaded === false) {
+          queue.create('Jobs', {
+            taskid: job.data.taskid,
+            type: 4,
+            date: job.data.date,
+            video: job.data.video,
+          }).attempts(3)
+            .priority('normal')
+            .removeOnComplete(true)
+            .save();
+          done();
+        } else {
+          createJobCloseTask(job.data.taskid);
+          done();
+        }
       }
     }
   });
