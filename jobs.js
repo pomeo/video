@@ -85,6 +85,9 @@ agenda.define('tasks', {
     } else {
       Tasks.find({
         type: result[0]._id.type,
+        status: {
+          $in: [1, 2],
+        },
       }).find({
         created_at: result[0].date,
       }).exec((err, tasks) => {
