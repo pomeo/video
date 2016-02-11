@@ -210,7 +210,8 @@ function getHotVideos(job, done) {
       youtube = JSON.parse(response.data);
     } catch (err) {
       log.error(`${job.data.taskid} error when json parse ${err}`);
-      done(err);
+      createJobCloseTask(job.data.taskid);
+      done();
     }
     as.each(youtube.videoList, (video, callback) => {
       const task = new Tasks({
@@ -243,7 +244,8 @@ function getHotVideos(job, done) {
     });
   }).catch(err => {
     log.error(err);
-    done(err);
+    createJobCloseTask(job.data.taskid);
+    done();
   });
 }
 
