@@ -368,6 +368,7 @@ function downloadVideo(job, done) {
 
   video.on('error', err => {
     log.error(`${job.data.taskid} Error when download video from yotube ${err}`);
+    log.info(`${job.data.taskid} ${err}`);
     createJobCloseTask(job.data.taskid);
     done();
   });
