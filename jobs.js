@@ -195,6 +195,7 @@ process.on('SIGTERM', graceful);
 process.on('SIGINT', graceful);
 
 function getHotVideos(job, done) {
+  log.info(`${job.data.taskid} get hot videos`);
   rest.post('https://www.google.com/trends/hotvideos/hotItems', {
     data: {
       hvd: job.data.date,
