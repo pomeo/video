@@ -351,11 +351,8 @@ function downloadVideo(job, done) {
           done(err);
         } else {
           log.info(`${job.data.taskid} create folder ${job.data.date}`);
-          done();
         }
       });
-    } else {
-      done();
     }
   });
 
