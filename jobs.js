@@ -99,7 +99,6 @@ agenda.define('tasks', {
           done();
         } else {
           const task = tasks[0];
-          log.info(`Fetch task ${task}`);
           if (task.status === 1) {
             task.status = 2;
             task.updated_at = new Date();
