@@ -333,6 +333,7 @@ function getVideoInfo(job, done) {
 }
 
 function downloadVideo(job, done) {
+  log.info(`${job.data.taskid} download video from youtube`);
   const cwd = `${__dirname}/public/files/${job.data.date}`;
   fs.exists(cwd, exists => {
     if (!exists) {
