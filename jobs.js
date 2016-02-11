@@ -145,7 +145,7 @@ agenda.define('tasks', {
               });
             } else {
               const hours = Math.abs(new Date() - new Date(task.updated_at)) / 36e5;
-              if (hours > 0.5) {
+              if (hours > 0.1) {
                 task.status = 1;
                 task.count += 1;
                 task.updated_at = new Date();
