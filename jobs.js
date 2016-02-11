@@ -383,7 +383,7 @@ function uploadVideo(job, done) {
         description : `${video.description}\n${video.tags}`,
       }, (res) => {
         if (!res || res.error) {
-          log.info(!res ? 'error occurred' : res.error);
+          log.error(`${job.data.taskid} error when upload to facebook ${JSON.stringify(res)}`);
           done(err);
         } else {
           log.info(`${job.data.taskid} post id: ${res.id}`);
