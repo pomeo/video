@@ -13,6 +13,7 @@ const as        = require('async');
 const youtubedl = require('youtube-dl');
 const cc        = require('coupon-code');
 const rest      = require('restler-promises');
+const filesize  = require('filesize');
 const FB        = require('fb');
 const country   = require('./libs/country');
 const Agenda    = require('agenda');
@@ -363,7 +364,7 @@ function downloadVideo(job, done) {
   video.on('info', (info) => {
     log.info('Download started');
     log.info(`Filename: ${info._filename}`);
-    log.info(`Size: ${info.size}`);
+    log.info(`Size: ${filesize(info.size)}`);
   });
 
   video.on('error', err => {
