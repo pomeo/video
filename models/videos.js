@@ -8,7 +8,7 @@ VideosSchema.add({
   videoid      : { type: String, index: true }, // идентификатор видео
   title        : String, // назнавание видео
   description  : String, // описание видео
-  tags         : Array, // теги видео
+  tags         : String, // теги видео
   downloaded   : { type: Boolean, index: true }, // скачан с ютюба
   uploaded     : { type: Boolean, index: true }, // закачан на фейсбук
   created_at   : Date,   // дата создания
